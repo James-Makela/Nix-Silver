@@ -1,0 +1,5 @@
+firmware/
+apple-silicon-support/
+
+*.bak
+*.lock
