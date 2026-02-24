@@ -1,6 +1,11 @@
 { pkgs, ... }:
 
 {
+
+  environment.systemPackages = with pkgs; [
+    where_is_my_sddm_theme
+  ];
+
   services.displayManager.sddm = {
     enable = true;
     enableHidpi = false;

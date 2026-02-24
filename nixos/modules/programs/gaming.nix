@@ -14,6 +14,7 @@
     steamtinkerlaunch
     wine
     winetricks
+    gpu-screen-recorder
   ];
 
   programs.java.enable = true;
