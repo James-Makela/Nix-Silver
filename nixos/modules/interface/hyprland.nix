@@ -1,10 +1,9 @@
 { pkgs, ... }:
 
 {
-  imports = 
-    [
+  imports = [
     ./common.nix
-    ];
+  ];
 
   environment.systemPackages = with pkgs; [
     hyprshade

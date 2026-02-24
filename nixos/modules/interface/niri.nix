@@ -1,10 +1,9 @@
 { pkgs, inputs, ... }:
 
 {
-  imports = 
-    [
+  imports = [
       ./common.nix
-    ];
+  ];
 
   environment.systemPackages = with pkgs; [
     swaylock
