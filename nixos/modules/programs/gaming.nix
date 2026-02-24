@@ -3,10 +3,11 @@
 {
   environment.systemPackages = with pkgs; [
     gamemode
+    gpu-screen-recorder
     linuxKernel.packages.linux_zen.xone
-    lutris
     lsfg-vk
     lsfg-vk-ui
+    lutris
     mangohud
     opentrack
     pcsx2
@@ -14,7 +15,6 @@
     steamtinkerlaunch
     wine
     winetricks
-    gpu-screen-recorder
   ];
 
   programs.java.enable = true;

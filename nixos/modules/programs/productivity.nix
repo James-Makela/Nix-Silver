@@ -5,6 +5,5 @@
     # Productivity
     libreoffice-fresh
     obsidian
-    neomutt # Tui email client
   ];
 }
