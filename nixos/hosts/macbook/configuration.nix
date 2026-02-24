@@ -16,7 +16,7 @@
       ../../modules/programs/terminal-tools.nix
       ../../modules/programs/development.nix
       ../../modules/programs/productivity.nix
-      ../../modules/interface/hyprland.nix
+      # ../../modules/interface/hyprland.nix
       ../../modules/interface/sddm.nix
       ../../modules/interface/niri.nix
     ];

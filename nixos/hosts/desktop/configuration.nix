@@ -18,7 +18,7 @@
       ../../modules/programs/media.nix
       ../../modules/programs/3d-tools.nix
       ../../modules/programs/productivity.nix
-      ../../modules/interface/hyprland.nix
+      # ../../modules/interface/hyprland.nix
       ../../modules/interface/sddm.nix
       ../../modules/interface/niri.nix
       inputs.home-manager.nixosModules.home-manager

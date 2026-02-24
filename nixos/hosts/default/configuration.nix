@@ -13,7 +13,7 @@
     ../../modules/programs/media.nix
     ../../modules/programs/development.nix
     ../../modules/programs/productivity.nix
-    ../../modules/interface/hyprland.nix
+    # ../../modules/interface/hyprland.nix
     ../../modules/interface/sddm.nix
     ../../modules/interface/niri.nix
 
@@ -66,7 +66,6 @@
   # https://discourse.nixos.org/t/weird-behaviour-after-suspend-gnome/38210/6
   systemd.services."pre-sleep".wantedBy = lib.mkForce [ ];
 
-  services.power-profiles-daemon.enable = true;
 
   services = {
     xserver = {
