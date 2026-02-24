@@ -73,16 +73,5 @@
           ./hosts/macbook/configuration.nix
         ];
       };
-
-      # ========================================================================
-      # SERVER
-      # ========================================================================
-      nixosConfigurations.server = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs system; };
-        modules = [
-          ./hosts/server/configuration.nix
-          inputs.home-manager.nixosModules.default
-        ];
-      };
     };
 }
