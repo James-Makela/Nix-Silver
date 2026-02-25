@@ -5,7 +5,7 @@
   # IMPORTS
   # ============================================================================
 
-  imports = [ # Include the results of the hardware scan.
+  imports = [
     ./hardware-configuration.nix
     ../../modules/common.nix
     ../../modules/programs/base.nix
@@ -13,11 +13,8 @@
     ../../modules/programs/media.nix
     ../../modules/programs/development.nix
     ../../modules/programs/productivity.nix
-    # ../../modules/interface/hyprland.nix
     ../../modules/interface/sddm.nix
     ../../modules/interface/niri.nix
-
-    ../../modules/testing.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 
@@ -48,7 +45,7 @@
   networking.firewall.allowedTCPPorts = [ ];
   networking.firewall.allowedUDPPorts = [ ];
 
-  networking.nameservers = ["192.168.0.50"];
+  networking.nameservers = [ ];
 
   # ============================================================================
   # ENVIRONMENT VARIABLES - COMMON
@@ -70,6 +67,7 @@
   services = {
     xserver = {
       enable = true;
+      # These drivers are required for some docking stations
       # videoDrivers = [ "displaylink" ];
     };
   };
@@ -78,16 +76,8 @@
   # DEVICES
   # ============================================================================
 
-  # TODO: Move Bluetooth to Audio - then Make a printing Module
-
   # Enable CUPS to print documents.
   services.printing.enable = true;
-
-  # Enable bluetooth
-  hardware.bluetooth = {
-    enable = true;
-    settings = { General = { Experimental = "true"; }; };
-  };
 
   # ============================================================================
   # AUDIO
@@ -104,6 +94,12 @@
     pulse.enable = true;
   };
 
+   # Enable bluetooth
+  hardware.bluetooth = {
+    enable = true;
+    settings = { General = { Experimental = "true"; }; };
+  };
+
   # ============================================================================
   # USER MANAGEMENT
   # ============================================================================
@@ -111,7 +107,9 @@
   users.users.user = {
     isNormalUser = true;
     description = "User";
+    # The dialout group is required to work with audrino
     extraGroups = [ "networkmanager" "wheel" "docker" "dialout" ];
+    # TODO: Move this elsewhere
     packages = with pkgs; [ firefox thunderbird ];
   };
 

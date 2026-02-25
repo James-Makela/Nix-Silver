@@ -3,7 +3,7 @@
 {
 
   environment.systemPackages = with pkgs; [
-    where_is_my_sddm_theme
+    where-is-my-sddm-theme
   ];
 
   services.displayManager.sddm = {

@@ -84,6 +84,7 @@
     nix-direnv.enable = true;
   };
 
+  # TODO: Modularize
   # Firefox configuration
   programs.firefox = {
     enable = true;
@@ -99,6 +100,7 @@
     policies.DisableTelemetry = true;
   };
 
+  # TODO: Modularize
   programs.git = {
     enable = true;
     settings = {

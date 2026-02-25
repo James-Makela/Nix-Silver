@@ -5,20 +5,17 @@
   # IMPORTS
   # ============================================================================
 
-  imports =
-    [ # Include the results of the hardware scan.
+  imports = [
       ./hardware-configuration.nix
       ../../modules/common.nix
       ../../modules/programs/qemu.nix
       ../../modules/programs/communication.nix
       ../../modules/programs/gaming.nix
       ../../modules/programs/development.nix
-      # ../../modules/nvidia-deps.nix
       ../../modules/amd-deps.nix
       ../../modules/programs/media.nix
       ../../modules/programs/3d-tools.nix
       ../../modules/programs/productivity.nix
-      # ../../modules/interface/hyprland.nix
       ../../modules/interface/sddm.nix
       ../../modules/interface/niri.nix
       inputs.home-manager.nixosModules.home-manager
@@ -48,7 +45,7 @@
     };
   };
 
-  networking.nameservers = [ "192.168.0.50" "100.101.131.10" ];
+  networking.nameservers = [ ];
 
   services.mullvad-vpn.enable = true;
   services.tailscale = { enable = true ; };
@@ -63,6 +60,7 @@
   # ============================================================================
 
   # Electron on wayland fix for scaling issues
+  # TODO: Make this global
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # ============================================================================
@@ -91,9 +89,6 @@
 
   services.printing.enable = true;
 
-  hardware.bluetooth.enable = true;
-  services.blueman.enable = true;
-
   # ============================================================================
   # AUDIO
   # ============================================================================
@@ -107,16 +102,21 @@
     pulse.enable = true;
   };
 
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
+
   # ============================================================================
   # USER MANAGEMENT
   # ============================================================================
-
+  
+  # TODO: Get all user management into one place
   users.users.user = {
     isNormalUser = true;
     description = "User";
     extraGroups = [ "networkmanager" "wheel" ];
     openssh.authorizedKeys.keys = [
     ];
+    # TODO: Move these elsewhere
     packages = with pkgs; [
       firefox
       thunderbird
