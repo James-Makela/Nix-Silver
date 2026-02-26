@@ -60,7 +60,13 @@
         specialArgs = { inherit inputs system; };
         modules = [
           ./hosts/desktop/configuration.nix
-          inputs.home-manager.nixosModules.default
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useUserPackages = true;
+            home-manager.useGlobalPkgs = true;
+            home-manager.extraSpecialArgs = { inherit inputs; };
+            home-manager.users.user = import ./home-manager;
+          }
         ];
       };
 
