@@ -123,15 +123,6 @@
     ];
   };
 
-  home-manager = {
-  # also pass inputs to home-manager modules
-    extraSpecialArgs = { inherit inputs; };
-    backupFileExtension = "hm-backup";
-    users = {
-      user = import ./home.nix;
-    };
-  };
-
   # ============================================================================
   # FONTS
   # ============================================================================
